@@ -6,12 +6,16 @@ import sqlLogo from './assets/sql-logo.png';
 
 function App() {
   const [queryDescription, setQueryDescription] = useState('');
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log('form submitted', queryDescription);
+  }
   return (
     <>
       <main className={styles.main}>
         <img src={sqlLogo} className={styles.icon} />
         <h3>Generate SQL with AI</h3>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             name="query-description"
